@@ -6,23 +6,32 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
-function validateForm() {
-    var name = document.forms["contact"]["name"].value;
-    var email = document.forms["contact"]["email"].value;
-    var message = document.forms["contact"]["message"].value;
+var nameField = document.forms["contact"]["name"];
+    var emailField = document.forms["contact"]["email"];
+    var messageField = document.forms["contact"]["message"];
+    var submitButton = document.getElementById("submitButton");
 
-    if (name === "") {
-        alert("Name must be filled out.");
-        return false;
-    }
-    if (email === "") {
-        alert("Email must be filled out.");
-        return false;
-    }
-    if (message === "") {
-        alert("Message must be filled out.");
-        return false;
+    function validateForm() {
+        if (nameField.value === "" || emailField.value === "" || messageField.value === "") {
+            alert("All fields must be filled out.");
+            return false;
+        }
+
+        // Validación adicional, por ejemplo, el formato de correo electrónico.
+        // Puedes agregar más validaciones aquí.
+
+        return true;
     }
 
-    return true;
-}
+    // Habilitar o deshabilitar el botón de envío en tiempo real
+    nameField.addEventListener("input", enableSubmitButton);
+    emailField.addEventListener("input", enableSubmitButton);
+    messageField.addEventListener("input", enableSubmitButton);
+
+    function enableSubmitButton() {
+        if (nameField.value !== "" && emailField.value !== "" && messageField.value !== "") {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    }
