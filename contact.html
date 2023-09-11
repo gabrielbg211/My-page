@@ -55,10 +55,10 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form form action="https://formspree.io/f/xoqzlrjj" method="POST">
+                            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                                 <!-- Name input-->
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="name" type="text" name placeholder="Enter your name..." data-sb-validations="required" />
+                                    <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                     <label for="name">Full name</label>
                                     <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                                 </div>
@@ -101,7 +101,7 @@
                                     <div class="text-center text-danger mb-3">Error sending message!</div>
                                 </div>
                                 <!-- Submit Button-->
-                                <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
+                                <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
                             </form>
                         </div>
                     </div>
@@ -135,32 +135,6 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    <script>
-        // Manejador para el envío del formulario
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Evita la recarga de la página al enviar el formulario
-            
-            // Realiza el envío del formulario usando Formspree
-            fetch('https://formspree.io/f/xoqzlrjj', {
-                method: 'POST',
-                body: new FormData(this),
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Verifica si el envío fue exitoso
-                if (data.success) {
-                    // Redirige al usuario al índice (index.html)
-                    window.location.href = 'index.html';
-                } else {
-                    // Muestra un mensaje de error si el envío falla
-                    alert('Error al enviar el formulario. Por favor, inténtelo de nuevo.');
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
