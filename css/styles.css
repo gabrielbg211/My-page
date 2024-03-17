@@ -12483,3 +12483,8 @@ html {
     text-align: justify; /* Justifica el texto dentro del div */
   }
 
+
+  img.img_logo {
+    width: 50%;
+    height: auto;
+}
