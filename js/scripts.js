@@ -3,6 +3,23 @@ var emailField = document.forms["contact"]["email"];
 var messageField = document.forms["contact"]["message"];
 var submitButton = document.getElementById("submitButton");
 
+function validateForm() {
+    if (nameField.value === "" || emailField.value === "" || messageField.value === "") {
+        alert("All fields must be filled out.");
+        return false;
+    }
+
+    // Validación adicional, por ejemplo, el formato de correo electrónico.
+    // Puedes agregar más validaciones aquí.
+
+    // Redirigir a index.html después de 3 segundos
+    setTimeout(function() {
+        window.location.href = "index.html";
+    }, 3000);
+
+    return true;
+}
+
 // Habilitar o deshabilitar el botón de envío en tiempo real
 nameField.addEventListener("input", enableSubmitButton);
 emailField.addEventListener("input", enableSubmitButton);
@@ -14,33 +31,4 @@ function enableSubmitButton() {
     } else {
         submitButton.disabled = true;
     }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector("form[name='contact']");
-    form.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevenir el envío predeterminado del formulario
-
-        // Validar el formulario
-        if (validateForm()) {
-            // Si el formulario es válido, enviar datos (aquí se puede agregar lógica adicional)
-            
-            // Redirigir a index.html después de 3 segundos
-            setTimeout(function() {
-                window.location.href = "index.html";
-            }, 3000);
-        }
-    });
-});
-
-function validateForm() {
-    if (nameField.value === "" || emailField.value === "" || messageField.value === "") {
-        alert("All fields must be filled out.");
-        return false;
-    }
-
-    // Validación adicional, por ejemplo, el formato de correo electrónico.
-    // Puedes agregar más validaciones aquí.
-
-    return true;
 }
