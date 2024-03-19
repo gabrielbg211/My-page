@@ -36,18 +36,4 @@ var nameField = document.forms["contact"]["name"];
         }
     }
 
-
-    // Este script manejará la redirección después de enviar el formulario
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector("form[name='contact']");
-            form.addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevenir el envío predeterminado del formulario
-
-                // Puedes agregar aquí cualquier lógica de procesamiento adicional, como enviar datos a un servidor
-
-                // Redirigir a index.html después de 3 segundos (3000 milisegundos)
-                setTimeout(function() {
-                    window.location.href = "index.html";
-                }, 3000); // Cambia este valor si deseas una espera diferente
-            });
-        });
+    
