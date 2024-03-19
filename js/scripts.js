@@ -32,3 +32,4 @@ function enableSubmitButton() {
         submitButton.disabled = true;
     }
 }
+
